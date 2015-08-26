@@ -922,8 +922,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         
         float percent = chosenImage.size.height/chosenImage.size.width;
         
-        self.imageAddMore.image = [chosenImage resizedImage:CGSizeMake(800, 800*percent) interpolationQuality:kCGInterpolationMedium];
-//        self.imageAddMore.image = chosenImage;
+        //self.imageAddMore.image = [chosenImage resizedImage:CGSizeMake(800, 800*percent) interpolationQuality:kCGInterpolationMedium];
+        
+        self.imageAddMore.image = chosenImage;
         self.imageSmallPD5.image = self.imagePD5.image;
         self.imagePD5.hidden = YES;
         self.addMorePhotoBtn.hidden = YES;

@@ -198,7 +198,7 @@
             }else if ([value isKindOfClass:[NSString class]]){
                 [formData appendPartWithFileURL:[NSURL fileURLWithPath:value] name:key error:&err];
             }else if ([value isKindOfClass:[NSData class]]){
-                [formData appendPartWithFileData:value name:key fileName:@"image.png" mimeType:@"image/png"];
+                [formData appendPartWithFileData:value name:key fileName:@"image.jpg" mimeType:@"image/jpeg"];
             }else{
                 NSLog(@"file data error");
                 success = NO;
