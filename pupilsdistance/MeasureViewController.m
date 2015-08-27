@@ -275,11 +275,16 @@
         NSData *data;
         if (state == 5)
         {
-            data = UIImageJPEGRepresentation(self.imageSelected.image, 1.0f);
+            //self.imageAddMore.image = [chosenImage resizedImage:CGSizeMake(800, 800*percent) interpolationQuality:kCGInterpolationMedium];
+            
+            UIImage *scaleImage = [self.imageSelected.image resizedImage:CGSizeMake(self.imageSelected.image.size.width/(self.imageSelected.image.size.height/1000), 1000) interpolationQuality:kCGInterpolationDefault];
+            
+            
+            data = UIImageJPEGRepresentation(scaleImage, 0.92f);
         }
         else
         {
-            data = UIImageJPEGRepresentation(_imageCapture, 1.0f);
+            data = UIImageJPEGRepresentation(_imageCapture, 0.92f);
         }
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -2069,7 +2074,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSDictionary *dicPath;
     
     if(self.imageAddMore.image != nil){
-        NSData *dataCard = UIImageJPEGRepresentation(self.imageAddMore.image, 1.0f);
+        UIImage *scaleImage = [self.imageAddMore.image resizedImage:CGSizeMake(self.imageAddMore.image.size.width/(self.imageAddMore.image.size.height/2500), 2500) interpolationQuality:kCGInterpolationDefault];
+        
+        NSData *dataCard = UIImageJPEGRepresentation(scaleImage, 0.77f);
         dicPath = [[NSDictionary alloc] initWithObjectsAndKeys:
                    image,@"uploaded_file",dataCard,@"uploadedfile2", nil];
     }else{
